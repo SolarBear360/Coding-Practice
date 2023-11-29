@@ -13,23 +13,21 @@ struct numPair longest_path(int node[][100],int nodeNum,int start){
     longest_record.y = 0;
     max_record.x = 0;
     max_record.y = 0;
+    int isterminal = 1;
     for(int i=0;i<nodeNum;i++){
-        if(node[start][i] != 0){
-            count++;
-            longest_record = longest_path(node,nodeNum,node[start][i]);
-            count--;
-            printf("%d %d\n",longest_record.x,longest_record.y);
-        }else{
-            struct numPair result;
-            result.x = count;
-            result.y = start;
-            return result;
-        }
-    }
+        if(node[start][i] == 0 && isterminal){
         struct numPair result;
         result.x = count;
         result.y = start;
         return result;
+        }else if(node[start][i] ==0 && !isterminal){
+
+}
+        isterminal = 0;
+        count++;
+        longest_record = longest_path(node,nodeNum,node[start][i]);
+        count--;
+        printf("%d %d\n",longest_record.x,longest_record.y);
 }
 
 int main(){
