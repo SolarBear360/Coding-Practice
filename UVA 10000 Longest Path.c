@@ -16,19 +16,19 @@ struct numPair longest_path(int node[][100],int nodeNum,int start){
     int isterminal = 1;
     for(int i=0;i<nodeNum;i++){
         if(node[start][i] == 0 && isterminal){
-        struct numPair result;
-        result.x = count;
-        result.y = start;
-        return result;
+            struct numPair result;
+            result.x = count;
+            result.y = start;
+            return result;
         }else if(node[start][i] ==0 && !isterminal){
 
-}
+        }
         isterminal = 0;
         count++;
         longest_record = longest_path(node,nodeNum,node[start][i]);
         count--;
         printf("%d %d\n",longest_record.x,longest_record.y);
-}
+    }
 
 int main(){
     int nodeNum;
